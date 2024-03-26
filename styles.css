@@ -1,0 +1,27 @@
+body{
+    background-color: rgb(210, 222, 233);
+
+}
+#box{
+    margin: 30px;
+    padding: 40px;
+}
+#main{
+    background-color: aqua;
+    display: flex;
+}
+#image{
+    display: flex;
+    flex-direction: row;
+}
+#answer{
+    margin-left: 200px;
+}
+
+.ans{
+    margin: 70px;
+}
+
+.nxtQstnBtn{
+    display: none;
+}
