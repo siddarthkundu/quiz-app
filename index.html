@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">    
+</head>
+<body>
+    <div id="main">
+        <div id="box">
+            <span id="question"></span>
+            <div id="image">
+                <img src="quiz.avif">
+                <div id="answer">
+                    <div class="ans">
+                        <button onclick=handleClick() style="background-color: aquamarine; height: 55px; width: 150px;"><span id="ans1"></span></button>
+                    </div>    
+                    <div class="ans">
+                        <button onclick=handleClick() style="background-color: aquamarine; height: 55px; width: 150px;"><span id="ans2"></span></button>
+                    </div>  
+                    <div class="ans">
+                        <button onclick=handleClick() style="background-color: aquamarine; height: 55px; width: 150px;"><span id="ans3"></span></button>
+                    </div>    
+                    <div class="ans">
+                        <button onclick=handleClick() style="background-color: aquamarine; height: 55px; width: 150px;"><span id="ans4"></span></button>
+                    </div> 
+                    <button type="submit" class="nxtQstnBtn" style="background-color: rgb(110, 137, 128); height: 50px; width: 100px;">NEXT</button>  
+                </div>
+            </div>
+        </div> 
+    </div>
+
+    <script src="database.js"></script>
+    <script>
+        document.querySelector("#question").innerHTML = questionBank[1].question;  
+        document.querySelector("#ans1").innerHTML = questionBank[1].option_1;
+        document.querySelector("#ans2").innerHTML = questionBank[1].option_2;
+        document.querySelector("#ans3").innerHTML = questionBank[1].option_3;
+        document.querySelector("#ans4").innerHTML = questionBank[1].option_4;   
+        
+        /* Answer button click functionality */
+        function handleClick() {
+            document.querySelector(".nxtQstnBtn").style.display = 'block'
+        }        
+    </script>
+    
+</body>
+</html>
