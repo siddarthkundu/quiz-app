@@ -9,7 +9,8 @@
 <body>
     <div id="main">
         <div id="box">
-            <span id="question"></span>
+            
+            <h2><span id="question"></span></h2>
             <div id="image">
                 <img src="quiz.avif">
                 <div id="answer">
@@ -25,7 +26,10 @@
                     <div class="ans">
                         <button onclick=handleClick() style="background-color: aquamarine; height: 55px; width: 150px;"><span id="ans4"></span></button>
                     </div> 
-                    <button type="submit" class="nxtQstnBtn" style="background-color: rgb(110, 137, 128); height: 50px; width: 100px;">NEXT</button>  
+                    <script>
+                        let i=0;
+                    </script>
+                    <button type="submit" class="nxtQstnBtn" onclick=nextClick(i+1) style="background-color: rgb(110, 137, 128); height: 50px; width: 100px;">NEXT</button>  
                 </div>
             </div>
         </div> 
@@ -33,16 +37,28 @@
 
     <script src="database.js"></script>
     <script>
-        document.querySelector("#question").innerHTML = questionBank[1].question;  
-        document.querySelector("#ans1").innerHTML = questionBank[1].option_1;
-        document.querySelector("#ans2").innerHTML = questionBank[1].option_2;
-        document.querySelector("#ans3").innerHTML = questionBank[1].option_3;
-        document.querySelector("#ans4").innerHTML = questionBank[1].option_4;   
+        document.querySelector("#question").innerHTML = questionBank[0].question;  
+        document.querySelector("#ans1").innerHTML = questionBank[0].option_1;
+        document.querySelector("#ans2").innerHTML = questionBank[0].option_2;
+        document.querySelector("#ans3").innerHTML = questionBank[0].option_3;
+        document.querySelector("#ans4").innerHTML = questionBank[0].option_4;   
         
         /* Answer button click functionality */
         function handleClick() {
             document.querySelector(".nxtQstnBtn").style.display = 'block'
-        }        
+        }   
+        /* Next question functionality */
+        function nextClick(i){
+            
+            document.querySelector(".nxtQstnBtn").style.display = 'none'
+
+            document.querySelector("#question").innerHTML = questionBank[i].question;  
+            document.querySelector("#ans1").innerHTML = questionBank[i].option_1;
+            document.querySelector("#ans3").innerHTML = questionBank[i].option_3;
+            document.querySelector("#ans2").innerHTML = questionBank[i].option_2;
+            document.querySelector("#ans4").innerHTML = questionBank[i].option_4;
+                        
+        }     
     </script>
     
 </body>
