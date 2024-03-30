@@ -14,17 +14,18 @@
             <div id="image">
                 <img src="quiz.avif">
                 <div id="answer">
+                    
                     <div class="ans">
-                        <button onclick=handleClick() style="background-color: aquamarine; height: 55px; width: 150px;"><span id="ans1"></span></button>
+                        <button onclick=handleClick(1) style="background-color: aquamarine; height: 55px; width: 150px;"><span id="ans1"></span></button>
                     </div>    
                     <div class="ans">
-                        <button onclick=handleClick() style="background-color: aquamarine; height: 55px; width: 150px;"><span id="ans2"></span></button>
+                        <button onclick=handleClick(1) style="background-color: aquamarine; height: 55px; width: 150px;"><span id="ans2"></span></button>
                     </div>  
                     <div class="ans">
-                        <button onclick=handleClick() style="background-color: aquamarine; height: 55px; width: 150px;"><span id="ans3"></span></button>
+                        <button onclick=handleClick(1) style="background-color: aquamarine; height: 55px; width: 150px;"><span id="ans3"></span></button>
                     </div>    
                     <div class="ans">
-                        <button onclick=handleClick() style="background-color: aquamarine; height: 55px; width: 150px;"><span id="ans4"></span></button>
+                        <button onclick=handleClick(1) style="background-color: aquamarine; height: 55px; width: 150px;"><span id="ans4"></span></button>
                     </div> 
                     <script>
                         let i=1;
@@ -44,18 +45,41 @@
         document.querySelector("#ans4").innerHTML = questionBank[0].option_4;   
         
         /* Answer button click functionality */
-        function handleClick() {
+        function handleClick(q) {
+
+            if(q > 0) {
+                for(let i=1; i<=4; i++){
+                    if(document.querySelector(`#ans${i}`).innerHTML === questionBank[q].correct){
+                        document.querySelector(`#ans${i}`).style.border = '2px solid green'
+                    }
+                }
+            } else {
+                for(let i=1; i<=4; i++){
+                    if(document.querySelector(`#ans${i}`).innerHTML === questionBank[0].correct){
+                        document.querySelector(`#ans${i}`).style.border = '2px solid green'
+                    }
+                }
+            }
+                
+             
+
+            
+
             document.querySelector(".nxtQstnBtn").style.display = 'block'
         }   
         /* Next question functionality */
         function nextClick(i){
+
+            for(let j=1; j<=4; j++){                
+                document.querySelector(`#ans${j}`).style.border = 'none'                
+            }
             
             document.querySelector(".nxtQstnBtn").style.display = 'none'
 
             document.querySelector("#question").innerHTML = questionBank[i].question;  
             document.querySelector("#ans1").innerHTML = questionBank[i].option_1;
-            document.querySelector("#ans3").innerHTML = questionBank[i].option_3;
             document.querySelector("#ans2").innerHTML = questionBank[i].option_2;
+            document.querySelector("#ans3").innerHTML = questionBank[i].option_3;
             document.querySelector("#ans4").innerHTML = questionBank[i].option_4;
                         
         }     
